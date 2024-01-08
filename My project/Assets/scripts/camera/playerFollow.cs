@@ -5,26 +5,14 @@ using UnityEngine;
 
 public class playerFollow : MonoBehaviour
 {
-
-    [SerializeField] Transform pos;
+    public float strength;
     [SerializeField] Transform target;
-    private Vector3 delta;
-    private float distance;
+    public Vector3 delta;
 
-    void Start()
+    void LateUpdate()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        delta = target.position - pos.position;
-        delta /= 2;
-        delta.z = 0;
-        delta.Normalize();
-        distance = delta.magnitude;
-        delta = delta * distance * distance;
-        pos.position += delta;
+        Vector3 desiredPos = target.position + delta;
+        Vector3 smoothPos = Vector3.Lerp(transform.position, desiredPos, strength);
+        transform.position += (smoothPos - transform.position)*Time.deltaTime*strength;
     }
 }

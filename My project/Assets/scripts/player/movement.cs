@@ -15,12 +15,13 @@ public class movement : MonoBehaviour
     {
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
+        
     }
 
     private void FixedUpdate()
     {
         input.Serialize();
-        input = input * speed;
+        input = input * speed*Time.deltaTime*10;
         rb2d.velocity = input;
     }
 }
