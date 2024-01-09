@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63823b0281285194d85eda2e32dfc325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 10
+  strength: 0.1
   target: {fileID: 1404071625}
   delta: {x: 0, y: 0, z: -10}
 --- !u!1 &645918838
